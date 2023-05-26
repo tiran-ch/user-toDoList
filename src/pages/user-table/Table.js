@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "./Table.css";
 
@@ -9,13 +9,17 @@ export default function UserTable() {
     });
 
     const deleteUser =(userId)=>{
-        console.log(userId);
-        console.log(userData)
+        // console.log(userId)
         const deleteUser = userData.filter(user => user.userId !== userId);
-        console.log(result, "result")
-        dispatch()
+
+        console.log(deleteUser);
+        dispatch({type: "DELETE_USER", payload: deleteUser})
 
     };
+
+    // useEffect(()=>{
+    //     console.log(userData)
+    // },[userData]);
 
     return(
         <div className="Table">
@@ -29,7 +33,7 @@ export default function UserTable() {
                 </tr>
                 {
                     userData.map(user=>{
-                        console.log(user)
+                        // console.log(user)
                         return(
                             <tr key={user.userId === undefined ? 0 : user.userId}>
                                 <td>{user.name}</td>

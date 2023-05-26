@@ -11,7 +11,7 @@ const Users = (state = initialState, action) => {
         };
         case "DELETE_USER": return {
             ...state,
-            users: [action.payload],
+            users: action.payload,
         };
         default: return state
     }

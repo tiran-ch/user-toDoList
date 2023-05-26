@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React, {useState} from "react";
+import {useDispatch } from "react-redux";
 import UserTable from "../user-table/Table";
 
 
@@ -34,13 +34,13 @@ export default function UserForm() {
                 <div className="row mb-4">
                     <div className="col">
                         <div className="form-outline">
-                            <input type="text" id="form3Example1" className="form-control" required/>
+                            <input type="text" id="form3Example1" className="form-control" placeholder="First name" required/>
                             <label className="form-label" htmlFor="form3Example1">First name</label>
                         </div>
                     </div>
                     <div className="col">
                         <div className="form-outline">
-                            <input type="text" id="form3Example2" className="form-control" required/>
+                            <input type="text" id="form3Example2" className="form-control" placeholder="Last name" required/>
                             <label className="form-label" htmlFor="form3Example2">Last name</label>
                         </div>
                     </div>
@@ -49,13 +49,13 @@ export default function UserForm() {
                 <div className="row mb-4">
                     <div className="col">
                         <div className="form-outline">
-                            <input type="email" id="form3Example3" className="form-control" required/>
+                            <input type="email" id="form3Example3" className="form-control" placeholder="Email" required/>
                             <label className="form-label" htmlFor="form3Example3">Email</label>
                         </div>
                     </div>
                     <div className="col">
                         <div className="form-outline">
-                            <input type="number" id="form3Example4" className="form-control" required/>
+                            <input type="number" id="form3Example4" className="form-control" placeholder="Age" required/>
                             <label className="form-label" htmlFor="form3Example4">Age</label>
                         </div>
                     </div>
