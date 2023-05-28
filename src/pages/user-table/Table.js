@@ -22,7 +22,7 @@ export default function UserTable() {
     // },[userData]);
 
     return(
-        <div className="Table">
+        <div className="Table w-100">
             <table className="table">
                 <tbody>
                 <tr>

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch } from "react-redux";
 import UserTable from "../user-table/Table";
-
+import "./userForm.css";
 
 export default function UserForm() {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export default function UserForm() {
 
     return (
         <div className="to_do_list">
-            <form className="w-50 m-auto mt-4" onSubmit={(e) => userForm(e)}>
+            <form className="w-75 m-auto mt-4" onSubmit={(e) => userForm(e)}>
                 <div className="row mb-4">
                     <div className="col">
                         <div className="form-outline">
