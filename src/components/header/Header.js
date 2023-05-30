@@ -1,6 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 export default function Header() {
+    const dispatch = useDispatch();
+
+    const fullName =(e)=>{
+        e.preventDefault();
+        dispatch({type: "SEARCH_USER", payload: `${e.target[0].value}`});
+    };
+
+
     return(
             <nav className="navbar navbar-expand-lg  navbar-light text-bg-info p-2 w-75 m-auto">
                 <a className="navbar-brand" href="#">Navbar</a>
@@ -34,7 +43,7 @@ export default function Header() {
                             <a className="nav-link disabled" href="#">Disabled</a>
                         </li>
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
+                    <form className="form-inline my-2 my-lg-0" onSubmit={(e)=> fullName(e)}>
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>

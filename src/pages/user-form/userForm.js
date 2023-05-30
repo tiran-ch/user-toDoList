@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import UserTable from "../user-table/Table";
 import "./userForm.css";
 
