@@ -1,30 +1,34 @@
 import React, {useEffect, useState} from "react";
-import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
+
+import "./Search.css";
+import {useSelector} from "react-redux";
 
 export default function Search() {
-    const [user, setUser] = useState([]);
-
     const userData = useSelector((state => state.Users.users));
-    const searchData = useSelector((state) => state.Search.search);
+    const params = useParams();
+    const [user, setUser] = useState("");
 
-
-    useEffect(()=>{
-        for(let i = 0; i < userData.length; i++){
-            let fullName = [userData[i].name.toLowerCase() + " " + userData[i].surName.toLowerCase()];
-            if(userData[i].name.toLowerCase() === searchData ||
-                userData[i].surName.toLowerCase() === searchData ||
-                fullName[0] === searchData){
-                setUser(userData[i])
-            }
-
-        }
-    },[userData, searchData]);
-
+    const data = userData.filter(data=> data.userId === params.id);
+    console.log(data);
 
 
     return(
-        <div className="Search">
+        <div className="search">
+            <div className="header_search">
+                {
+                    userData.map(data=>(
+                        <div className="user-data" key={data.userId}>
+                            <p>Name: {data.name}</p>
+                            <p>surName: {data.surName}</p>
+                            <p>Email: {data.email}</p>
+                            <p>Age: {data.age}</p>
+                        </div>
+                    ))
 
+
+                }
+            </div>
         </div>
     )
 }

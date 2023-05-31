@@ -1,12 +1,30 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router";
 
 export default function Header() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+    const userData = useSelector((state => state.Users.users));
 
     const fullName =(e)=>{
         e.preventDefault();
+
         dispatch({type: "SEARCH_USER", payload: `${e.target[0].value}`});
+
+        if (userData.length !== 0){
+            let objName = userData.find(data => data.name.includes(e.target[0].value));
+            let objSurName = userData.find(data => data.surName.includes(e.target[0].value));
+
+            if(objName !== undefined){
+                navigate(`/search/${objName.userId}`)
+                // window.open(`/search/${objName.userId}`, '_blank');
+            }else {
+                navigate(`/search/${objSurName.userId}`)
+                // window.open(`/search/${objSurName.userId}`, '_blank');
+
+            }
+        }
     };
 
 

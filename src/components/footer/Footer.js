@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faHippo, faStroopwafel   } from "@fortawesome/free-solid-svg-icons";
